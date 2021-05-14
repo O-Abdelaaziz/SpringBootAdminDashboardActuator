@@ -3,16 +3,13 @@ package com.admindashboardactuator.server.seeders;
 import com.admindashboardactuator.server.models.Employee;
 import com.admindashboardactuator.server.repositories.EmployeeRepository;
 import com.github.javafaker.Faker;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Stream;
+import java.util.*;
 
 @Component
 public class DatabaseSeeder {
@@ -41,11 +38,13 @@ public class DatabaseSeeder {
                 String firstName=faker.name().firstName();
                 String lastName=faker.name().lastName();
                 String fullName=firstName+"+"+lastName;
+                Date birthDay=faker.date().birthday();
+
                 employee.setCode(faker.code().imei());
                 employee.setIdNumber(faker.idNumber().valid());
                 employee.setFirstName(firstName);
                 employee.setLastName(lastName);
-                employee.setBirthday(faker.date().birthday().toString());
+                employee.setBirthday(birthDay);
                 employee.setCountry(faker.country().name());
                 employee.setAddress(faker.address().fullAddress());
                 employee.setEmail(faker.internet().emailAddress());
@@ -57,12 +56,13 @@ public class DatabaseSeeder {
                 employee.setSkills(faker.job().keySkills());
                 employee.setJobTitle(faker.job().title());
                 employee.setPhone(faker.phoneNumber().phoneNumber());
+                employee.setJoinDate(DateUtils.addYears(birthDay,20).toString());
                 employee.setDescription(faker.lorem().paragraph(2));
                 employee.setImageUrl("https://ui-avatars.com/api/?name="+fullName);
 
                 employeeList.add(employee);
             }
-            employeeList.forEach(item -> System.out.println(item.getDescription()));
+            employeeList.forEach(item -> System.out.println(item.getBirthday()+" "+ item.getJoinDate()));
 //            employeeRepository.saveAll(employeeList);
         }
     }

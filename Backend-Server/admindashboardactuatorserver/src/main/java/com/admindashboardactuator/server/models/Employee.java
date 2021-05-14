@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -33,7 +34,7 @@ public class Employee implements Serializable {
     private String lastName;
 
     @Column(name = "birthday")
-    private String birthday;
+    private Date birthday;
 
     @Column(name = "country")
     private String country;
@@ -67,6 +68,9 @@ public class Employee implements Serializable {
 
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "joinDate")
+    private String joinDate;
 
     @Column(name = "imageUrl")
     private String imageUrl;
