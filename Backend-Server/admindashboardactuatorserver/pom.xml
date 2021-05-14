@@ -43,7 +43,7 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
