@@ -7,13 +7,15 @@ import { MainNavbarComponent } from './components/main-navbar/main-navbar.compon
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { HttpClientModule} from '@angular/common/http';
+import { EmployeeListComponent } from './views/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavbarComponent,
     MainHeaderComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
