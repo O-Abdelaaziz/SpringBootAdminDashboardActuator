@@ -11,7 +11,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
-@RequestMapping(name = "/employees")
+@RequestMapping("/employees")
 public class EmployeeResource {
 
     private IEmployeeService iEmployeeService;
