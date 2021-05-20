@@ -8,6 +8,9 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { HttpClientModule} from '@angular/common/http';
 import { EmployeeListComponent } from './views/employee-list/employee-list.component';
+import {CommonModule} from "@angular/common";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,8 +22,11 @@ import { EmployeeListComponent } from './views/employee-list/employee-list.compo
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

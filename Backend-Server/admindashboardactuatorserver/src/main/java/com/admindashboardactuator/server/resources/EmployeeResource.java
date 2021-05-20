@@ -3,6 +3,7 @@ package com.admindashboardactuator.server.resources;
 import com.admindashboardactuator.server.models.Employee;
 import com.admindashboardactuator.server.services.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +23,9 @@ public class EmployeeResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        List<Employee> employeeList = iEmployeeService.findAllEmployees();
+    public ResponseEntity<Page<Employee>> getAllEmployees(@RequestParam(name = "page", defaultValue = "0") int page,
+                                                          @RequestParam(name = "size", defaultValue = "8") int size) {
+        Page<Employee> employeeList = iEmployeeService.findAllEmployees(page, size);
         return new ResponseEntity<>(employeeList, OK);
     }
 
@@ -31,6 +33,12 @@ public class EmployeeResource {
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id) {
         Employee employee = iEmployeeService.findEmployeeById(id);
         return new ResponseEntity<>(employee, OK);
+    }
+
+    @GetMapping("/generate")
+    public ResponseEntity<?> generateEmployee(@RequestParam(name = "size", defaultValue = "100") Integer size) {
+        iEmployeeService.generateEmployees(size);
+        return new ResponseEntity<>(OK);
     }
 
     @PostMapping("/create")
@@ -48,6 +56,12 @@ public class EmployeeResource {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
         iEmployeeService.deleteEmployee(id);
+        return new ResponseEntity<>(OK);
+    }
+
+    @DeleteMapping("/delete/all")
+    public ResponseEntity<?> deleteALlEmployees() {
+        iEmployeeService.deleteAllEmployees();
         return new ResponseEntity<>(OK);
     }
 }

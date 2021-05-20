@@ -4,6 +4,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+interface EmployeeResponse {
+  content: Employee[],
+  pageable: {
+    pageNumber:number,
+  },
+  totalPages:number,
+  totalElements: number,
+  number:number,
+  offset:number
+
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +27,16 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) {}
 
-  public getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.apiServerUrl}/employees/all`);
+  public getEmployees(pageNumber:number,pageSize:number): Observable<EmployeeResponse> {
+    return this.http.get<EmployeeResponse>(`${this.apiServerUrl}/employees/all?page=${pageNumber}&size=${pageSize}`);
   }
 
   public createEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(`${this.apiServerUrl}/employees/create`, employee);
+  }
+
+  public generateEmployees(size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiServerUrl}/employees/generate?size=${size}`);
   }
 
   public updateEmployee(employee: Employee): Observable<Employee> {
@@ -27,6 +45,10 @@ export class EmployeeService {
 
   public deleteEmployee(employeeId: number): Observable<Employee> {
     return this.http.delete<Employee>(`${this.apiServerUrl}/employees/delete/${employeeId}`);
+  }
+
+  public deleteAllEmployees(): Observable<any> {
+    return this.http.delete<any>(`${this.apiServerUrl}/employees/delete/all`);
   }
 
 }

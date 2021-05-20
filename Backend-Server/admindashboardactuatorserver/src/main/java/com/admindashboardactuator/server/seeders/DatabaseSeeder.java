@@ -33,7 +33,7 @@ public class DatabaseSeeder {
             List<Employee> employeeList = new ArrayList<>();
             Faker faker = new Faker();
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 100; i++) {
                 Employee employee = new Employee();
                 String firstName=faker.name().firstName();
                 String lastName=faker.name().lastName();

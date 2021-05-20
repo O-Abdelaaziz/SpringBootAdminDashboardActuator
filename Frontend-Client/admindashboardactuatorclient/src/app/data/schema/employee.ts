@@ -21,25 +21,25 @@ export class Employee {
     public description: string;
 
   constructor(
-    id: number, 
-    code: string, 
-    idNumber: string, 
-    firstName: string, 
-    lastName: string, 
-    birthday: string, 
-    country: string, 
-    address: string, 
-    email: string, 
-    creditCardNumber: string, 
-    creditCardType: string, 
-    creditCardExpiry: string, 
-    promotionCode: string, 
-    profession: string, 
-    skills: string, 
-    jobTitle: string, 
-    phone: string, 
-    joinDate: string, 
-    imageUrl: string, 
+    id: number,
+    code: string,
+    idNumber: string,
+    firstName: string,
+    lastName: string,
+    birthday: string,
+    country: string,
+    address: string,
+    email: string,
+    creditCardNumber: string,
+    creditCardType: string,
+    creditCardExpiry: string,
+    promotionCode: string,
+    profession: string,
+    skills: string,
+    jobTitle: string,
+    phone: string,
+    joinDate: string,
+    imageUrl: string,
     description: string
 ) {
     this.id = id
@@ -63,5 +63,5 @@ export class Employee {
     this.imageUrl = imageUrl
     this.description = description
   }
-    
+
 }
