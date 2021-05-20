@@ -1,0 +1,169 @@
+
+<div class="row">
+    <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-blue order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Orders Received</h6>
+                <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-green order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Orders Received</h6>
+                <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-yellow order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Orders Received</h6>
+                <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-pink order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Orders Received</h6>
+                <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6"> HTTP RESPONSE
+        <canvas id="barChart" style="display: block;"></canvas>
+      </div>
+  
+      <div class="col-sm-6 col-md-6 col-lg-6">HTTP RESPONSE
+        <canvas id="pieChart" style="display: block;">
+        </canvas>
+     </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-12" style="margin-top: 50px;">
+        <h5 class="pull-left">HTTP Traces</h5>
+        <button type="button" class="btn btn-primary btn-sm pull-right" style="margin-bottom: 10px;">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          export to Excel</button>
+        <table class="table table-hover text-center" id="httptrace-table">
+          <thead>
+            <tr>
+              <th>Time Stamp</th>
+              <th>Method</th>
+              <th>Time Taken(ms)</th>
+              <th>Status</th>
+              <th>URI</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr style="cursor: pointer;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button  class="btn btn-outline-info"><i class="fa fa-eye"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>   
+     </div>
+</div>
+
+<!-- Button trigger modal -->
+<button hidden="true" type="button" id="trace-modal" class="btn btn-primary" data-toggle="modal" data-target="#trace-info-modal"></button>
+
+
+<!-- Trace Information Modal -->
+<div class="modal fade" id="trace-info-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">HTTP Trace Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body right-left-margin">
+            <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#request">
+                  <i class="fa fa-sitemap"></i> Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#response">
+                  <i class="fa fa-sliders"></i> Response</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="request">
+                <p>
+                  <strong>Time Stamp:</strong>
+                  
+                </p>
+                <p>
+                  <strong>Time Taken(ms):</strong>
+                  
+                </p>
+                <p>
+                  <strong>Request Method:</strong>
+                  
+                </p>
+                <p>
+                  <strong>Remote Address:</strong>
+                  
+                </p>
+                <p>
+                  <strong>URI:</strong>
+                  
+                </p>
+                <p>
+                  <strong>Origin:</strong>
+                  
+                </p>
+                <p>
+                  <strong>User Agent (Web Client):</strong>
+                  
+                </p>
+              </div>
+
+              <div class="tab-pane fade" id="response">
+                <dl>
+                  <dt>Status:</dt>
+                  <dd></dd>
+                </dl>
+                <dl>
+                  <dt>Date:</dt>
+                  <dd></dd>
+                </dl>
+                <dl>
+                  <dt>Content Type:</dt>
+                  <dd></dd>
+                </dl>
+                <p>
+                  <strong>Server Allowed Origins:</strong>
+                  
+                </p>
+              </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { EmployeeListComponent } from './views/employee-list/employee-list.compo
 import {CommonModule} from "@angular/common";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import { AdminDashboardComponent } from './views/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     MainNavbarComponent,
     MainHeaderComponent,
     MainFooterComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

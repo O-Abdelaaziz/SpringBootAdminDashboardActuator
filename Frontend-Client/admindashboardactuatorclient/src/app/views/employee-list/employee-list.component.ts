@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 export class EmployeeListComponent implements OnInit {
   public employeeList: Employee[]=[];
 
-  public size:number=0;
+  public size:number=1;
   public pageNumber:number=0;
   public pageSize:number = 8;
   public totalElements:number=0;

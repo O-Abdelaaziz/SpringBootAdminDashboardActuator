@@ -1,13 +1,51 @@
 <div class="row">
+  <div class="col-md-8 mb-5">
+    <h2>What We Do</h2>
+    <hr />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt
+      neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque
+      vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo,
+      maiores!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio
+      neque consectetur consequatur magni in nisi, natus beatae quidem quam
+      odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate.
+      Voluptatum.
+    </p>
+    <a class="btn btn-primary btn-lg" href="#!">Call to Action »</a>
+  </div>
+  <div class="col-md-4 mb-5">
+    <h2>Contact Us</h2>
+    <hr />
+    <address>
+      <strong>Start Bootstrap</strong>
+      <br />
+      3481 Melrose Place
+      <br />
+      Beverly Hills, CA 90210
+      <br />
+    </address>
+    <address>
+      <abbr title="Phone">P:</abbr>
+      (123) 456-7890
+      <br />
+      <abbr title="Email">E:</abbr>
+      <a href="mailto:#">name@example.com</a>
+    </address>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-10">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
       <div class="btn-group mr-2" role="group" aria-label="First group">
         <button class="btn btn-danger" (click)="onDeleteAllEmployees()" [disabled]="employeeList.length==0" >Delete All</button>
       </div>
       <div class="input-group">
-        <input type="number" min="1" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" (change)="onChange($event.target.value)">
+        <input type="number" min="1" class="form-control" #test aria-label="Recipient's username" aria-describedby="basic-addon2" (change)="onChange($event.target.value)">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" (click)="onGenerateEmployees(size)">Generate</button>
+          <button class="btn btn-outline-secondary" type="button" [disabled]="size ==1 || size==null" (click)="onGenerateEmployees(size)">Generate</button>
         </div>
       </div>
     </div>
@@ -56,7 +94,7 @@
         <div class="float-right btn-group btn-group-sm">
         </div>
         <ul class="social-links list-inline mb-0">
-          <li class="list-inline-item">
+          <li class="list-inline-item">Skills: 
             <span class="badge badge-danger">{{employee.skills}}</span>
           </li>
         </ul>
