@@ -39,7 +39,6 @@ export class EmployeeListComponent implements OnInit {
   public getEmployees(): void {
     this._employeeService.getEmployees(this.pageNumber,this.pageSize).subscribe(
       (response) => {
-        console.log(response);
         this.employeeList=response.content;
         this.pageNumber=response.number +1;
         this.totalElements=response.totalElements;

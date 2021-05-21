@@ -17,6 +17,6 @@ public class LoggerService implements HealthIndicator {
     }
 
     private boolean isLoggerServiceGood(){
-        return false;
+        return true;
     }
 }

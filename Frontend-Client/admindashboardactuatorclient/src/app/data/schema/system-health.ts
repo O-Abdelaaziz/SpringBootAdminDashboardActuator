@@ -1,11 +1,12 @@
 export class SystemHealth {
   status: string;
-  details: {
+  components: {
     db: {
       status: string;
       details: {
         database: string;
         hello: number;
+        validationQuery:string;
       };
     };
     diskSpace: {
@@ -16,5 +17,8 @@ export class SystemHealth {
         threshold: number;
       };
     };
+    ping:{
+      status:string;
+    }
   };
 }
